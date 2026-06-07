@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>디스턴싱 온보딩 개선 제안 ｜ 퍼포먼스 마케터 면접 발표</title>
+<title>디스턴싱 온보딩 사용 후기 & 개선 아이디어 ｜ 퍼포먼스 마케터 면접</title>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 <style>
   :root{
@@ -11,7 +11,7 @@
     --blue:#2b59ff; --blue-d:#1d44d6; --blue-l:#6a8bff; --blue-bg:#eaf0ff;
     --red:#fa5252; --red-d:#e03e3e; --red-bg:#fff0f0;
     --tint:#f6f8fc; --green:#12a886; --green-bg:#e7f8f3; --navy:#0a1030;
-    --amber:#e8590c; --amber-bg:#fff4ec;
+    --amber:#e8761c; --amber-d:#c4600f; --amber-bg:#fff4ea;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
@@ -33,14 +33,14 @@
 
   .lede{font-size:14px;color:var(--gray);font-weight:700;margin-bottom:5px;}
   .stitle{font-size:33px;font-weight:800;color:var(--ink);letter-spacing:-1.1px;line-height:1.24;}
-  .stitle .i{color:var(--blue);} .stitle .r{color:var(--red-d);}
+  .stitle .i{color:var(--blue);} .stitle .r{color:var(--red-d);} .stitle .a{color:var(--amber-d);}
   .body{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;min-height:0;}
   .take{font-size:17.5px;font-weight:700;color:var(--ink);line-height:1.5;}
   .take .hi{background:linear-gradient(transparent 58%,var(--blue-bg) 58%);padding:0 3px;}
-  .take .hir{background:linear-gradient(transparent 58%,var(--red-bg) 58%);padding:0 3px;}
+  .take .hia{background:linear-gradient(transparent 58%,var(--amber-bg) 58%);padding:0 3px;}
   .pageno{position:absolute;right:58px;bottom:24px;font-size:12px;color:var(--faint);font-weight:700;}
   b.k{font-weight:800;color:var(--ink);}
-  .i{color:var(--blue);} .r{color:var(--red-d);} .g{color:var(--green);}
+  .i{color:var(--blue);} .r{color:var(--red-d);} .g{color:var(--green);} .a{color:var(--amber-d);}
 
   .row{display:flex;gap:18px;}
   .col{flex:1;min-width:0;}
@@ -48,15 +48,15 @@
   .card.tint{background:var(--tint);box-shadow:none;}
   .card h3{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:8px;}
   .card p{font-size:14px;color:#525a62;}
-  ul.clean{list-style:none;} ul.clean li{position:relative;padding-left:19px;font-size:13.5px;color:#4a525a;margin:7px 0;line-height:1.5;}
+  ul.clean{list-style:none;} ul.clean li{position:relative;padding-left:19px;font-size:13.5px;color:#4a525a;margin:8px 0;line-height:1.5;}
   ul.clean li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--blue);}
   .tag{display:inline-block;font-size:11.5px;font-weight:800;padding:4px 11px;border-radius:20px;}
-  .tag.i{background:var(--blue-bg);color:var(--blue-d);} .tag.r{background:var(--red-bg);color:var(--red-d);} .tag.g{background:var(--green-bg);color:var(--green);} .tag.a{background:var(--amber-bg);color:var(--amber);}
+  .tag.i{background:var(--blue-bg);color:var(--blue-d);} .tag.r{background:var(--red-bg);color:var(--red-d);} .tag.g{background:var(--green-bg);color:var(--green);} .tag.a{background:var(--amber-bg);color:var(--amber-d);}
   .big{font-size:40px;font-weight:800;color:var(--blue);letter-spacing:-1.5px;line-height:1;}
   .big.r{color:var(--red-d);} .big .u{font-size:15px;font-weight:700;color:var(--gray);letter-spacing:0;}
   .num-l{font-size:12.5px;color:#525a62;margin-top:8px;font-weight:600;line-height:1.4;}
   .src{font-size:10.5px;color:var(--faint);}
-  .note{font-size:11px;color:var(--faint);margin-top:10px;}
+  .note{font-size:11px;color:var(--faint);margin-top:10px;line-height:1.5;}
   .gloss{background:var(--blue-bg);border-radius:12px;padding:10px 16px;font-size:13px;color:var(--charcoal);font-weight:600;display:flex;align-items:center;gap:8px;line-height:1.45;}
   .gloss b{color:var(--blue-d);font-weight:800;}
 
@@ -67,7 +67,7 @@
   .cover .left{position:relative;z-index:3;width:70%;padding:0 62px;display:flex;flex-direction:column;justify-content:center;height:100%;}
   .wordmark{font-size:25px;font-weight:800;letter-spacing:-.5px;color:#fff;margin-bottom:30px;display:flex;align-items:center;gap:9px;}
   .wordmark .dot{width:13px;height:13px;border-radius:50%;background:linear-gradient(135deg,#7df9ff,#6a8bff);}
-  .cover .eyebrow{font-size:12.5px;font-weight:800;letter-spacing:2.5px;color:#7da0ff;margin-bottom:18px;}
+  .cover .eyebrow{font-size:12.5px;font-weight:800;letter-spacing:2px;color:#7da0ff;margin-bottom:18px;}
   .cover h1{font-size:44px;font-weight:800;color:#fff;letter-spacing:-1.8px;line-height:1.32;}
   .cover h1 .g{background:linear-gradient(90deg,#8be9ff,#7da0ff,#a99bff);-webkit-background-clip:text;background-clip:text;color:transparent;}
   .cover .spine{margin-top:24px;font-size:16.5px;font-weight:700;color:#c2cbef;line-height:1.55;border-left:3px solid var(--blue-l);padding-left:15px;}
@@ -78,11 +78,11 @@
   /* summary cards */
   .sumgrid{display:flex;gap:15px;}
   .sc{flex:1;background:var(--tint);border-radius:18px;padding:20px 20px;border-top:5px solid var(--blue);}
-  .sc:nth-child(2){border-top-color:var(--red);}
+  .sc:nth-child(2){border-top-color:var(--amber);}
   .sc:nth-child(3){border-top-color:var(--blue-l);}
   .sc:nth-child(4){border-top-color:var(--green);}
   .sc .sl{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:10px;}
-  .sc:nth-child(1) .sl{color:var(--blue-d);} .sc:nth-child(2) .sl{color:var(--red-d);}
+  .sc:nth-child(1) .sl{color:var(--blue-d);} .sc:nth-child(2) .sl{color:var(--amber-d);}
   .sc:nth-child(3) .sl{color:var(--blue);} .sc:nth-child(4) .sl{color:var(--green);}
   .sc p{font-size:14.5px;color:#2f363d;line-height:1.6;font-weight:500;}
 
@@ -95,23 +95,23 @@
   .fstep .fn{font-size:10.5px;font-weight:800;color:var(--blue-d);background:var(--blue-bg);border-radius:20px;padding:3px 0;margin-bottom:7px;}
   .fstep .ft{font-size:12.5px;font-weight:800;color:var(--ink);margin-bottom:3px;line-height:1.3;}
   .fstep .fc{font-size:10.5px;color:var(--gray);line-height:1.35;}
-  .fstep.pay{border-color:var(--red);background:var(--red-bg);}
-  .fstep.pay .fn{background:var(--red);color:#fff;}
+  .fstep.pay{border-color:var(--amber);background:var(--amber-bg);}
+  .fstep.pay .fn{background:var(--amber);color:#fff;}
   .farrm{display:flex;align-items:center;color:var(--faint);font-weight:800;font-size:15px;}
 
-  /* bottleneck */
+  /* observation cards (soft amber) */
   .btl{display:flex;gap:13px;}
   .btlc{flex:1;border-radius:18px;padding:16px 16px;border:1px solid var(--line);background:#fff;box-shadow:0 2px 10px rgba(25,31,40,.04);display:flex;flex-direction:column;}
   .btlc .hd{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
-  .btlc .bn{width:26px;height:26px;border-radius:8px;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px;flex:0 0 auto;}
+  .btlc .bn{width:26px;height:26px;border-radius:8px;background:var(--amber);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px;flex:0 0 auto;}
   .btlc h3{font-size:14.5px;font-weight:800;color:var(--ink);line-height:1.25;}
-  .btlc .easy{background:var(--red-bg);border-radius:10px;padding:9px 11px;font-size:12px;color:#7a2e2e;font-weight:700;line-height:1.4;margin-bottom:9px;}
-  .btlc p{font-size:12px;color:#5b636b;line-height:1.5;}
-  .btlc .m{font-size:11px;font-weight:800;color:var(--red-d);margin-top:auto;padding-top:8px;}
+  .btlc .easy{background:var(--amber-bg);border-radius:10px;padding:9px 11px;font-size:12px;color:#8a4b1a;font-weight:700;line-height:1.4;margin-bottom:9px;}
+  .btlc p{font-size:12.5px;color:#5b636b;line-height:1.5;}
+  .btlc .m{font-size:11.5px;font-weight:800;color:var(--amber-d);margin-top:auto;padding-top:8px;}
 
   /* strategy */
   .strathead{display:flex;align-items:center;gap:14px;background:var(--blue-bg);border-radius:14px;padding:12px 18px;margin-bottom:15px;}
-  .strathead .b{background:var(--red);color:#fff;font-size:12px;font-weight:800;padding:5px 12px;border-radius:20px;flex:0 0 auto;}
+  .strathead .b{background:var(--blue);color:#fff;font-size:12px;font-weight:800;padding:5px 12px;border-radius:20px;flex:0 0 auto;}
   .strathead .t{font-size:14px;font-weight:700;color:var(--charcoal);line-height:1.45;}
   .strathead .t b{color:var(--blue-d);}
   .actcard{flex:1;border-radius:16px;border:1px solid var(--line);padding:16px 19px;box-shadow:0 2px 10px rgba(25,31,40,.04);}
@@ -154,14 +154,14 @@
 
   /* before/after */
   .ba{display:flex;gap:16px;}
-  .bacol{flex:1;border-radius:18px;padding:18px 20px;}
-  .bacol.before{background:var(--red-bg);border:1px solid #ffd9d9;}
+  .bacol{flex:1;border-radius:18px;padding:18px 22px;}
+  .bacol.before{background:var(--tint);border:1px solid var(--line);}
   .bacol.after{background:var(--blue-bg);border:1px solid #d4ddff;}
   .bacol .bh{font-size:14px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-  .bacol.before .bh{color:var(--red-d);} .bacol.after .bh{color:var(--blue-d);}
-  .baline{font-size:13px;color:#3f474e;margin:9px 0;padding-left:22px;position:relative;line-height:1.45;}
+  .bacol.before .bh{color:var(--gray);} .bacol.after .bh{color:var(--blue-d);}
+  .baline{font-size:13.5px;color:#3f474e;margin:11px 0;padding-left:22px;position:relative;line-height:1.45;}
   .baline::before{position:absolute;left:0;top:0;font-weight:800;}
-  .bacol.before .baline::before{content:"✕";color:var(--red);}
+  .bacol.before .baline::before{content:"·";color:var(--faint);font-size:18px;top:-3px;}
   .bacol.after .baline::before{content:"✓";color:var(--blue);}
   .baline b{font-weight:800;color:var(--ink);}
 
@@ -193,7 +193,7 @@
   /* perspective slide */
   .persp{display:flex;gap:16px;align-items:stretch;}
   .formula{background:var(--navy);border-radius:18px;padding:22px 24px;color:#fff;display:flex;flex-direction:column;justify-content:center;flex:1.1;}
-  .formula .fl{font-size:14px;color:#aab2e6;font-weight:700;margin-bottom:14px;}
+  .formula .fl{font-size:13px;color:#aab2e6;font-weight:700;margin-bottom:14px;}
   .formula .eq{font-size:18px;font-weight:800;line-height:1.7;}
   .formula .eq .hl{background:linear-gradient(90deg,#8be9ff,#7da0ff);-webkit-background-clip:text;background-clip:text;color:transparent;}
   .formula .eq .box{display:inline-block;border:1.5px solid var(--blue-l);border-radius:8px;padding:1px 8px;margin:0 2px;}
@@ -218,339 +218,339 @@
   <div class="coverscrim"></div>
   <div class="left">
     <div class="wordmark"><span class="dot"></span>distancing</div>
-    <div class="eyebrow">ONBOARDING 개선 제안 · 퍼포먼스 마케터 면접</div>
+    <div class="eyebrow">온보딩 사용 후기 & 개선 아이디어 · 퍼포먼스 마케터 면접</div>
     <h1>광고는 <span class="g">클릭</span>을 사고,<br>온보딩은 <span class="g">고객</span>을 만든다</h1>
-    <div class="spine">앱 온보딩 개선은 비용이 아니라<br><b>→ 퍼포먼스 효율 최적화의 출발점</b>입니다</div>
-    <div class="meta"><b>이도형</b> ｜ 2026 ｜ 직접 체험 → 진단 → 처방(경쟁사 레퍼런스) → 실행</div>
+    <div class="spine">직접 끝까지 써보며 느낀 점과,<br><b>전환을 함께 높일 작은 아이디어</b>를 모았습니다</div>
+    <div class="meta"><b>이도형</b> ｜ 2026 ｜ 직접 사용 → 관찰 → 제안 → 실행</div>
   </div>
 </section>
 
-<!-- 2 EXECUTIVE SUMMARY -->
+<!-- 2 SUMMARY -->
 <section class="slide">
   <div class="topbar"><div class="stepper"><span class="step active"><span class="n">＝</span>한 장 요약</span></div><span class="brandtag"><b>distancing</b> ╳ 이도형</span></div>
-  <div class="lede">EXECUTIVE SUMMARY</div>
-  <h1 class="stitle">"이게 뭔지 모른 채 425,000원" → <span class="i">"체감하고 결제"</span>로</h1>
+  <div class="lede">한 장 요약</div>
+  <h1 class="stitle">'체감 먼저, 결제는 그 다음'이면 <span class="i">더 좋겠다</span> 싶었어요</h1>
   <div class="body">
     <div class="sumgrid">
-      <div class="sc"><div class="sl">① 직접 체험</div><p>광고 클릭 후 <b class="k">50+ 화면·25문항</b>의 자기설문을 거쳐야 가격(<b class="k">425,000원</b>)을 만남. 정작 <b class="k">'디스턴싱'을 체험하는 순간은 0회.</b></p></div>
-      <div class="sc"><div class="sl">② 핵심 진단</div><p>가치 <b class="k">'설명'만 있고 '체험'이 없음</b> + 과도한 설문 + 보상 없는 매몰비용 + 가격·페이백 설계 미흡.</p></div>
-      <div class="sc"><div class="sl">③ 처방(레퍼런스)</div><p>Calm·Headspace·Duolingo·Noom의 <b class="k">Value-first 온보딩</b>으로 '아하'를 결제 앞에 배치.</p></div>
-      <div class="sc"><div class="sl">④ 기대효과</div><p>온보딩 CVR↑ = <b class="k">모든 채널 CAC 동시 인하</b>. 입찰·타겟팅보다 ROI가 큰 레버.</p></div>
+      <div class="sc"><div class="sl">① 직접 써봄</div><p>광고 클릭부터 가격(<b class="k">425,000원</b>)까지 <b class="k">50여 화면</b>을 거쳤습니다.</p></div>
+      <div class="sc"><div class="sl">② 느낀 점</div><p>정작 <b class="k">'디스턴싱'을 체험</b>해보는 순간이 없어 조금 아쉬웠어요.</p></div>
+      <div class="sc"><div class="sl">③ 아이디어</div><p>좋은 앱들처럼 <b class="k">가치를 먼저 체험</b>시키면 어떨까 생각했습니다.</p></div>
+      <div class="sc"><div class="sl">④ 기대</div><p>온보딩 전환율은 <b class="k">모든 채널의 CAC</b>를 함께 낮춰줍니다.</p></div>
     </div>
-    <p class="take" style="margin-top:22px;">퍼포먼스의 첫 단추는 매체가 아니라 <span class="hi">클릭 직후의 60초</span> — 온보딩이 새면 <span class="hir">아무리 잘 태운 광고도 손해</span>입니다.</p>
+    <p class="take" style="margin-top:24px;">퍼포먼스의 첫 단추는 매체이기 전에 <span class="hi">클릭 직후의 첫 1분</span>이라고 느꼈습니다.</p>
   </div>
   <div class="pageno">02 / 12</div>
 </section>
 
-<!-- 3 관점: 왜 퍼포먼스 마케터가 온보딩을 말하는가 -->
+<!-- 3 관점 -->
 <section class="slide">
   <div class="topbar">
     <div class="stepper">
       <span class="step active"><span class="n">1</span>관점</span><span class="sep"></span>
-      <span class="step"><span class="n">2</span>진단</span><span class="sep"></span>
-      <span class="step"><span class="n">3</span>처방</span><span class="sep"></span>
+      <span class="step"><span class="n">2</span>관찰</span><span class="sep"></span>
+      <span class="step"><span class="n">3</span>제안</span><span class="sep"></span>
       <span class="step"><span class="n">4</span>실행</span>
-    </div><span class="brandtag">왜 온보딩인가</span>
+    </div><span class="brandtag">왜 온보딩부터일까</span>
   </div>
-  <div class="lede">관점 ｜ 온보딩 = 퍼포먼스 효율 최적화의 시작</div>
-  <h1 class="stitle">온보딩 CVR은 <span class="i">모든 채널 CAC에 곱해지는</span> 공통분모</h1>
+  <div class="lede">관점 ｜ 온보딩과 퍼포먼스 효율</div>
+  <h1 class="stitle">온보딩 전환율은 <span class="i">모든 채널의 CAC</span>와 맞닿아 있습니다</h1>
   <div class="body">
     <div class="persp">
       <div class="formula">
         <div class="fl">실질 CAC = 매체 CPC ÷ 온보딩 전환율</div>
         <div class="eq">
-          광고를 아무리 잘 태워도<br>
+          광고를 잘 태워도<br>
           <span class="box">온보딩 CVR</span> 이 새면<br>
-          <span class="hl">Meta · Google · TikTok</span> 의<br>
-          CAC가 <span class="hl">동시에</span> 나빠진다.
+          <span class="hl">Meta · Google · TikTok</span><br>
+          CAC가 <span class="hl">함께</span> 나빠집니다.
         </div>
-        <p style="font-size:12.5px;color:#aab2e6;margin-top:16px;line-height:1.5;">입찰·타겟팅·소재는 <b style="color:#fff;">한 채널</b>만 개선하지만,<br>온보딩 전환율은 <b style="color:#fff;">전 채널을 한 번에</b> 올린다.</p>
+        <p style="font-size:12.5px;color:#aab2e6;margin-top:16px;line-height:1.5;">입찰·타겟팅은 <b style="color:#fff;">한 채널</b>을 고치지만,<br>온보딩은 <b style="color:#fff;">전 채널을 한 번에</b> 올립니다.</p>
       </div>
       <div class="col" style="display:flex;flex-direction:column;gap:14px;">
         <div class="selfcase">
-          <div class="sct">제 검증 사례 — Web2App 브릿지</div>
-          <p style="font-size:13.5px;color:#2f363d;line-height:1.55;">"앱스토어 직링크 대신 <b class="k">가치를 납득시키는 브릿지를 거치면 고의향 유저만 진입</b>한다"는 가설을 동일 계정·114일 통제 비교로 검증.</p>
+          <div class="sct">제가 검증해 본 사례 — Web2App 브릿지</div>
+          <p style="font-size:13.5px;color:#2f363d;line-height:1.55;">앱스토어 직링크 대신 <b class="k">가치를 먼저 설명하는 브릿지</b>를 거치게 했더니, 같은 광고에서 결과가 달라졌습니다.</p>
           <div class="stats" style="margin-top:12px;">
-            <div class="stat" style="background:#fff;"><div class="big">+102.9<span class="u">%</span></div><div class="num-l">구매 전환율(CVR)</div></div>
+            <div class="stat" style="background:#fff;"><div class="big">+102.9<span class="u">%</span></div><div class="num-l">구매 전환율</div></div>
             <div class="stat" style="background:#fff;"><div class="big">−51.8<span class="u">%</span></div><div class="num-l">CPA</div></div>
           </div>
         </div>
-        <div class="gloss">💡 <b>온보딩이 곧 그 브릿지입니다.</b> 같은 로직 — 매체를 바꾸기 전에 클릭 이후의 전환을 먼저 고친다.</div>
+        <div class="gloss">💡 <b>온보딩이 곧 그 브릿지였습니다.</b></div>
       </div>
     </div>
-    <p class="take" style="margin-top:16px;">그래서 저는 <span class="hi">"예산을 늘리기 전에 온보딩부터"</span> — 퍼포먼스 마케터의 월권이 아니라 <span class="hi">허용 CAC를 키우는 기본기</span>로 봅니다.</p>
+    <p class="take" style="margin-top:16px;">그래서 저는 <span class="hi">예산을 키우기 전에, 클릭 이후 전환부터</span> 살피는 습관이 생겼습니다.</p>
   </div>
+  <p class="note" style="position:absolute;left:58px;bottom:22px;">출처 · Web2App 사례: 본인 포트폴리오(커버링, 동일 계정·114일 통제 비교)</p>
   <div class="pageno">03 / 12</div>
 </section>
 
-<!-- 4 현황: 직접 워크스루 (funnel map) -->
+<!-- 4 직접 워크스루 -->
 <section class="slide">
   <div class="topbar">
     <div class="stepper">
       <span class="step done"><span class="n">✓</span>관점</span><span class="sep"></span>
-      <span class="step active"><span class="n">2</span>진단</span><span class="sep"></span>
-      <span class="step"><span class="n">3</span>처방</span><span class="sep"></span>
+      <span class="step active"><span class="n">2</span>관찰</span><span class="sep"></span>
+      <span class="step"><span class="n">3</span>제안</span><span class="sep"></span>
       <span class="step"><span class="n">4</span>실행</span>
-    </div><span class="brandtag">직접 체험</span>
+    </div><span class="brandtag">직접 써본 기록</span>
   </div>
-  <div class="lede">진단 ① ｜ 현재 온보딩, 끝까지 직접 걸어봤습니다</div>
-  <h1 class="stitle">광고 클릭 후 <span class="r">50+ 화면</span>의 자기설문 끝에야 만나는 <span class="r">425,000원</span></h1>
+  <div class="lede">관찰 ① ｜ 끝까지 직접 써봤습니다</div>
+  <h1 class="stitle">가격을 만나기까지, <span class="a">50여 개의 화면</span>을 지나왔어요</h1>
   <div class="body">
     <div class="fmap">
-      <div class="fstep"><div class="fn">인트로</div><div class="ft">제품 소개 4p</div><div class="fc">코치·효과그래프<br>모두 정적 이미지</div></div>
+      <div class="fstep"><div class="fn">인트로</div><div class="ft">제품 소개 4p</div><div class="fc">코치·효과 그래프<br>이미지로 소개</div></div>
       <div class="farrm">›</div>
       <div class="fstep"><div class="fn">섹션 1</div><div class="ft">고민과 목표</div><div class="fc">12화면<br>증상·목표 선택</div></div>
       <div class="farrm">›</div>
-      <div class="fstep"><div class="fn">섹션 2</div><div class="ft">인식과 기대</div><div class="fc">리커트 10문항<br>(동의/비동의)</div></div>
+      <div class="fstep"><div class="fn">섹션 2</div><div class="ft">인식과 기대</div><div class="fc">동의/비동의<br>10문항</div></div>
       <div class="farrm">›</div>
-      <div class="fstep"><div class="fn">섹션 3</div><div class="ft">습관과 노력</div><div class="fc">리커트 5문항<br>+ 분석 중…</div></div>
+      <div class="fstep"><div class="fn">섹션 3</div><div class="ft">습관과 노력</div><div class="fc">5문항<br>+ 분석 중…</div></div>
       <div class="farrm">›</div>
-      <div class="fstep pay"><div class="fn">가격 노출</div><div class="ft">425,000원</div><div class="fc">맥락 없이 단독<br>+ 설문 더 이어짐</div></div>
+      <div class="fstep pay"><div class="fn">가격</div><div class="ft">425,000원</div><div class="fc">설문 중간에<br>등장</div></div>
       <div class="farrm">›</div>
-      <div class="fstep"><div class="fn">섹션 4~</div><div class="ft">관점과 방식…</div><div class="fc">추가 문항 →<br>최종 결제</div></div>
+      <div class="fstep"><div class="fn">섹션 4~</div><div class="ft">관점과 방식…</div><div class="fc">문항 더 → 결제</div></div>
     </div>
     <div class="row" style="margin-top:18px;">
-      <div class="card tint col"><h3 style="font-size:14px;">📊 직접 측정한 사실</h3>
+      <div class="card tint col"><h3 style="font-size:14px;">써보며 메모한 것</h3>
         <ul class="clean">
-          <li><b class="k">6개 섹션 · 50+ 탭</b> · 약 <b class="k">25개 문항</b>(리커트 15 + 선택 10)</li>
-          <li>가격(<b class="k">425,000원</b>)은 설문 <b class="k">한복판</b>에서 노출되고, 그 뒤로도 설문이 계속됨</li>
-          <li><b class="k">'디스턴싱(생각과 거리두기)'을 직접 해보는 순간은 단 한 번도 없음</b></li>
+          <li><b class="k">6개 섹션 · 50여 화면 · 약 25문항</b>으로 꽤 긴 여정이었어요.</li>
+          <li>가격(<b class="k">425,000원</b>)이 설문 중간에 나오고, 그 뒤로도 문항이 이어졌습니다.</li>
+          <li><b class="k">'디스턴싱'을 직접 해보는 순간</b>은 만나지 못했어요.</li>
         </ul>
       </div>
       <div class="col" style="flex:0 0 168px;display:flex;gap:8px;">
-        <img src="images/likert.png" style="width:50%;border-radius:12px;border:1px solid var(--line);" alt="리커트 설문">
-        <img src="images/price.png" style="width:50%;border-radius:12px;border:1px solid var(--line);" alt="425,000원 가격 노출">
+        <img src="images/likert.png" style="width:50%;border-radius:12px;border:1px solid var(--line);" alt="설문 화면">
+        <img src="images/price.png" style="width:50%;border-radius:12px;border:1px solid var(--line);" alt="가격 화면">
       </div>
     </div>
-    <p class="take" style="margin-top:14px;">Noom의 퀴즈 퍼널(113화면)을 본떴지만 — <span class="hir">길이만 따라 하고 '개인화 보상'은 빠졌습니다.</span></p>
-    <p class="note">※ 2026.6 기준 promotion-onboarding 플로우 직접 워크스루. 가격은 '챌린저 플랜' 기준이며 플랜·프로모션에 따라 상이.</p>
+    <p class="take" style="margin-top:14px;">Noom식 퀴즈 퍼널과 닮아 있는데, <span class="hia">Noom의 '개인화'를 한 걸음 더 살리면</span> 좋겠다 싶었어요.</p>
   </div>
+  <p class="note" style="position:absolute;left:58px;bottom:22px;">출처 · 화면 흐름: 2026.6 promotion-onboarding 직접 워크스루(챌린저 플랜, 플랜·프로모션별 상이) / Noom 113화면: RevenueCat funnel teardown</p>
   <div class="pageno">04 / 12</div>
 </section>
 
-<!-- 5 진단: 4대 약점 -->
+<!-- 5 아쉬웠던 4가지 -->
 <section class="slide">
   <div class="topbar">
     <div class="stepper">
       <span class="step done"><span class="n">✓</span>관점</span><span class="sep"></span>
-      <span class="step active"><span class="n">2</span>진단</span><span class="sep"></span>
-      <span class="step"><span class="n">3</span>처방</span><span class="sep"></span>
+      <span class="step active"><span class="n">2</span>관찰</span><span class="sep"></span>
+      <span class="step"><span class="n">3</span>제안</span><span class="sep"></span>
       <span class="step"><span class="n">4</span>실행</span>
-    </div><span class="brandtag">약점 진단</span>
+    </div><span class="brandtag">사용자로서 느낀 점</span>
   </div>
-  <div class="lede">진단 ② ｜ 전환을 막는 4가지 약점</div>
-  <h1 class="stitle">'설명'은 많은데, <span class="r">'체험'과 '보상'</span>이 없다</h1>
+  <div class="lede">관찰 ② ｜ 한 사용자로서 아쉬웠던 4가지</div>
+  <h1 class="stitle">'체험'과 '보람'을 조금만 더하면 <span class="a">좋겠다</span> 싶었어요</h1>
   <div class="body">
     <div class="btl">
-      <div class="btlc"><div class="hd"><span class="bn">1</span><h3>가치 '체험'의 부재</h3></div>
-        <div class="easy">"이게 나한테 효과 있을지 느껴본 적이 없다"</div>
-        <p>인트로 4p는 전부 <b class="k">정적 목업 이미지</b>. 핵심 기술 '거리두기'를 한 번도 체험 못 함. Time-to-Value가 사실상 ∞.</p>
-        <span class="m">▶ 확신 없이 결제 결정 강요</span></div>
-      <div class="btlc"><div class="hd"><span class="bn">2</span><h3>과도하게 긴 설문</h3></div>
-        <div class="easy">"본 게 없는데 질문만 25개… 지친다"</div>
-        <p>6섹션·50+탭, <b class="k">리커트 15문항</b> 반복. 다단계 퍼널은 보통 <b class="k">40~70% 이탈</b>, 스텝당 20% 미만이 양호.</p>
-        <span class="m">▶ 인지 피로 → 중도 이탈</span></div>
-      <div class="btlc"><div class="hd"><span class="bn">3</span><h3>보상 없는 매몰비용</h3></div>
-        <div class="easy">"그렇게 답했는데 '내 것'이 안 보인다"</div>
-        <p>Noom은 답할수록 <b class="k">예측 그래프가 갱신</b>됨. 디스턴싱은 그만큼 묻고도 <b class="k">개인화 산출물(맞춤 진단·곡선)</b>이 약함.</p>
-        <span class="m">▶ 투자만 시키고 가치 환급 X</span></div>
-      <div class="btlc"><div class="hd"><span class="bn">4</span><h3>가격·페이백 설계</h3></div>
-        <div class="easy">"42만원이 맥락 없이 툭 나온다"</div>
-        <p>가격이 <b class="k">맞춤 플랜 확정·가치 체험 전</b>에 단독 노출. 강력한 무기인 <b class="k">'페이백 보장'</b>이 가격과 같은 화면에 없음.</p>
-        <span class="m">▶ 앵커링·리스크 역전 미활용</span></div>
+      <div class="btlc"><div class="hd"><span class="bn">1</span><h3>먼저 체험해보고 싶었어요</h3></div>
+        <div class="easy">"이게 나한테 맞을지 느껴보고 싶었다"</div>
+        <p>인트로는 이미지 소개 위주라, 핵심인 '거리두기'를 직접 해보는 순간이 있으면 더 와닿았을 것 같아요.</p>
+        <span class="m">→ 확신을 먼저 드리면 좋겠다</span></div>
+      <div class="btlc"><div class="hd"><span class="bn">2</span><h3>문항이 조금 길게 느껴졌어요</h3></div>
+        <div class="easy">"본 건 적은데 질문이 많아 지치는 느낌"</div>
+        <p>비슷한 동의/비동의 문항이 이어지다 보니, 중간에 살짝 힘이 빠지는 순간이 있었습니다.</p>
+        <span class="m">→ 핵심만 추리면 좋겠다</span></div>
+      <div class="btlc"><div class="hd"><span class="bn">3</span><h3>'내 것'이 보이면 좋겠어요</h3></div>
+        <div class="easy">"답을 많이 했는데 결과가 잘 안 보였다"</div>
+        <p>Noom은 답할수록 예측 그래프가 채워집니다. 답변이 결과로 돌아오면 끝까지 가는 힘이 생길 것 같아요.</p>
+        <span class="m">→ 답변을 결과로 돌려주면 좋겠다</span></div>
+      <div class="btlc"><div class="hd"><span class="bn">4</span><h3>가격이 조금 일찍 느껴졌어요</h3></div>
+        <div class="easy">"가치를 충분히 느끼기 전에 가격을 만남"</div>
+        <p>강점인 '페이백 보장'이 가격과 같은 화면에 함께 있으면 더 안심하고 볼 수 있을 것 같았습니다.</p>
+        <span class="m">→ 가치가 선 뒤 가격이면 좋겠다</span></div>
     </div>
-    <p class="take" style="margin-top:18px;">핵심은 순서입니다 — <span class="hir">"조사 → 결제"</span>를 <span class="hi">"체험 → 맞춤 진단 → 납득된 결제"</span>로 뒤집어야 합니다.</p>
+    <p class="take" style="margin-top:18px;">정리하면 — <span class="hi">"체험 → 내 플랜 확인 → 납득된 결제"</span> 순서면 더 좋겠다는 생각이었어요.</p>
   </div>
   <div class="pageno">05 / 12</div>
 </section>
 
-<!-- 6 처방1: Value-first -->
+<!-- 6 제안1: Value-first -->
 <section class="slide">
   <div class="topbar">
     <div class="stepper">
       <span class="step done"><span class="n">✓</span>관점</span><span class="sep"></span>
-      <span class="step done"><span class="n">✓</span>진단</span><span class="sep"></span>
-      <span class="step active"><span class="n">3</span>처방</span><span class="sep"></span>
+      <span class="step done"><span class="n">✓</span>관찰</span><span class="sep"></span>
+      <span class="step active"><span class="n">3</span>제안</span><span class="sep"></span>
       <span class="step"><span class="n">4</span>실행</span>
-    </div><span class="brandtag">처방 1/3</span>
+    </div><span class="brandtag">제안 1/3</span>
   </div>
-  <div class="lede">처방 ① ｜ 약점 1·2 — 가치 체험 부재</div>
-  <h1 class="stitle">'아하'를 결제 <span class="i">앞</span>에 둔다 — 60초 디스턴싱 미니체험</h1>
+  <div class="lede">제안 ① ｜ 가치를 먼저 체험</div>
+  <h1 class="stitle">'아하'를 결제 <span class="i">앞</span>에 — 60초 디스턴싱 체험</h1>
   <div class="body">
     <div class="row" style="align-items:stretch;">
       <div class="col" style="flex:1.3;">
-        <div class="strathead"><span class="b">레퍼런스</span><span class="t">선두 앱은 모두 <b>"설명하지 않고 체험시킨다"</b> — 가치를 느낀 뒤에야 가입·결제를 요청</span></div>
+        <div class="strathead"><span class="b">참고 사례</span><span class="t">좋은 앱들은 <b>가치를 먼저 느끼게 한 뒤</b> 가입·결제를 권합니다</span></div>
         <div class="refbar">
-          <div class="ref"><span class="ri">C</span><div><span class="rl">Calm</span> · 첫 화면에서 무료 호흡·명상 즉시 재생, 무료 세션 5~10개로 체감</div></div>
-          <div class="ref"><span class="ri">H</span><div><span class="rl">Headspace</span> · 온보딩 첫 단계가 가이드 호흡 — 코어 가치를 먼저 맛보임</div></div>
+          <div class="ref"><span class="ri">C</span><div><span class="rl">Calm</span> · 무료 명상으로 먼저 체감</div></div>
+          <div class="ref"><span class="ri">H</span><div><span class="rl">Headspace</span> · 첫 단계가 호흡 가이드</div></div>
         </div>
         <div class="refbar">
-          <div class="ref"><span class="ri">D</span><div><span class="rl">Duolingo</span> · 가입 요청을 첫 레슨 <b>완료 후</b>로 미뤄 <b style="color:var(--blue-d)">D1 리텐션 +20%</b></div></div>
+          <div class="ref"><span class="ri">D</span><div><span class="rl">Duolingo</span> · 가입을 첫 레슨 뒤로 미뤄 <b style="color:var(--blue-d)">다음날 잔존 +20%</b></div></div>
         </div>
-        <p class="take" style="margin-top:14px;font-size:15.5px;">디스턴싱엔 이미 강력한 체험거리가 있습니다 — <span class="hi">'생각과 거리두기' 그 자체.</span> 광고 클릭 후 첫 60초에 <b class="k">설문 대신 1분 실습</b>을 넣습니다.</p>
+        <p class="take" style="margin-top:14px;font-size:15px;">디스턴싱엔 이미 좋은 체험거리가 있어요 — <span class="hi">'생각과 거리두기' 그 자체.</span> 첫 60초에 한 번만 해보게 하면 어떨까요.</p>
       </div>
       <div class="col" style="flex:1;">
         <div class="mock">
           <div class="mh">🧠 디스턴싱 1분 체험</div>
-          <div class="ms">설문 전, 핵심 기술을 직접 해본다</div>
-          <div class="chatb sys">지금 머릿속을 맴도는 걱정 하나를 적어볼까요?</div>
+          <div class="ms">설문 전에, 핵심을 한 번 해본다</div>
+          <div class="chatb sys">지금 맴도는 걱정 하나를 적어볼까요?</div>
           <div class="chatb me">또 실수할 것 같아 불안해요</div>
-          <div class="chatb sys">그 생각에 '나는 ~라고 생각하고 있다'를 붙여 다시 읽어보세요.</div>
+          <div class="chatb sys">'나는 ~라고 생각하고 있다'를 붙여 읽어보세요.</div>
           <div class="chatb me">나는 '또 실수할 것 같다'고 생각하고 있다</div>
-          <div class="relief">방금 그 생각과 한 걸음 멀어졌습니다 ✓</div>
+          <div class="relief">방금 그 생각과 한 걸음 멀어졌어요 ✓</div>
           <div class="mockbtn">이게 디스턴싱이에요 — 더 해보기</div>
         </div>
-        <p class="src" style="text-align:center;margin-top:8px;">▲ 제안 목업 — '체험된 아하' 후에 설문·결제로</p>
+        <p class="src" style="text-align:center;margin-top:8px;">▲ 직접 그려본 제안 화면</p>
       </div>
     </div>
   </div>
+  <p class="note" style="position:absolute;left:58px;bottom:22px;">출처 · Duolingo 다음날 잔존 +20%: Appcues·Juno School / Calm·Headspace 온보딩: ChoosingTherapy·Headspace UX 분석</p>
   <div class="pageno">06 / 12</div>
 </section>
 
-<!-- 7 처방2: 설문 → 개인화 진단 -->
+<!-- 7 제안2: 개인화 진단 -->
 <section class="slide">
   <div class="topbar">
     <div class="stepper">
       <span class="step done"><span class="n">✓</span>관점</span><span class="sep"></span>
-      <span class="step done"><span class="n">✓</span>진단</span><span class="sep"></span>
-      <span class="step active"><span class="n">3</span>처방</span><span class="sep"></span>
+      <span class="step done"><span class="n">✓</span>관찰</span><span class="sep"></span>
+      <span class="step active"><span class="n">3</span>제안</span><span class="sep"></span>
       <span class="step"><span class="n">4</span>실행</span>
-    </div><span class="brandtag">처방 2/3</span>
+    </div><span class="brandtag">제안 2/3</span>
   </div>
-  <div class="lede">처방 ② ｜ 약점 2·3 — 긴 설문 · 보상 없는 매몰비용</div>
-  <h1 class="stitle">'설문'을 <span class="i">'개인화 진단'</span>으로 — 답할수록 내 플랜이 쌓이게</h1>
+  <div class="lede">제안 ② ｜ 답변을 결과로</div>
+  <h1 class="stitle">설문을 <span class="i">'내 플랜이 쌓이는 과정'</span>으로</h1>
   <div class="body">
     <div class="row" style="align-items:stretch;">
       <div class="col" style="flex:1.25;">
-        <div class="strathead"><span class="b">레퍼런스</span><span class="t"><b>Noom</b>의 퍼널이 통하는 이유 — 매 답변이 <b>체중 예측 곡선</b>을 갱신해 "나만의 플랜"이 눈에 보이게 쌓임</span></div>
+        <div class="strathead"><span class="b">참고 사례</span><span class="t"><b>Noom</b>은 답할 때마다 <b>예측 곡선</b>이 채워져, "내 플랜"이 눈에 보입니다</span></div>
         <div class="row" style="gap:13px;">
           <div class="actcard"><span class="tag i">덜어내기</span>
-            <h3 style="margin-top:8px;">문항 다이어트 + 진행률</h3>
+            <h3 style="margin-top:8px;">핵심 문항 + 진행률</h3>
             <ul class="clean">
-              <li>리커트 15문항 → <b class="k">핵심 척도만</b>으로 압축</li>
-              <li><b class="k">진행바·남은 시간</b> 표시 (이탈 방어)</li>
+              <li>비슷한 문항은 <b class="k">핵심만</b> 남기기</li>
+              <li><b class="k">진행바·남은 시간</b> 보여주기</li>
             </ul>
           </div>
           <div class="actcard"><span class="tag g">보여주기</span>
-            <h3 style="margin-top:8px;">답변 → 즉시 산출물</h3>
+            <h3 style="margin-top:8px;">답변 → 바로 결과</h3>
             <ul class="clean">
-              <li>내 <b class="k">우울·불안 예상 개선 곡선</b> 실시간 갱신</li>
-              <li><b class="k">맞춤 100일 커리큘럼</b> 미리보기 생성</li>
+              <li>내 <b class="k">예상 개선 곡선</b> 실시간 갱신</li>
+              <li><b class="k">맞춤 100일 코스</b> 미리보기</li>
             </ul>
           </div>
         </div>
-        <p class="take" style="margin-top:14px;font-size:15px;">매몰비용을 <span class="hir">'피로'</span>가 아니라 <span class="hi">'내 플랜이 완성돼 가는 보람'</span>으로 바꾼다.</p>
+        <p class="take" style="margin-top:14px;font-size:15px;">같은 문항도 <span class="hi">'내 플랜이 완성돼 가는 보람'</span>으로 느껴질 수 있어요.</p>
       </div>
       <div class="col" style="flex:1;">
         <div class="curvebox">
-          <div class="ttl">📈 OO님 맞춤 예측 — 답변 기반 실시간</div>
+          <div class="ttl">📈 OO님 맞춤 예측 — 답변 기반</div>
           <svg viewBox="0 0 300 120" style="width:100%;height:96px;">
-            <polyline points="10,20 70,30 130,55 200,80 290,100" fill="none" stroke="#fa5252" stroke-width="3" stroke-dasharray="5 4" opacity=".5"/>
+            <polyline points="10,20 70,30 130,55 200,80 290,100" fill="none" stroke="#fa5252" stroke-width="3" stroke-dasharray="5 4" opacity=".4"/>
             <polyline points="10,20 70,28 130,48 200,72 290,96" fill="none" stroke="#2b59ff" stroke-width="3.5"/>
             <circle cx="290" cy="96" r="5" fill="#2b59ff"/>
             <text x="150" y="16" font-size="11" fill="#7c848c">우울 점수</text>
-            <text x="226" y="92" font-size="11" font-weight="700" fill="#2b59ff">100일 후 ↓</text>
+            <text x="222" y="92" font-size="11" font-weight="700" fill="#2b59ff">100일 후 ↓</text>
           </svg>
           <div class="pillrow">
             <span class="pill on">번아웃 직장인</span><span class="pill on">불면</span><span class="pill">반추</span>
           </div>
-          <p style="font-size:11px;color:var(--gray);margin-top:8px;">→ 당신께는 <b style="color:var(--blue-d)">'생각 거리두기 + 행동활성화'</b> 모듈을 우선 배치했어요</p>
+          <p style="font-size:11px;color:var(--gray);margin-top:8px;">→ <b style="color:var(--blue-d)">'생각 거리두기 + 행동활성화'</b> 코스를 먼저 담아뒀어요</p>
         </div>
-        <p class="src" style="text-align:center;margin-top:8px;">▲ 제안 목업 — 답변이 보이는 결과로 환급</p>
+        <p class="src" style="text-align:center;margin-top:8px;">▲ 직접 그려본 제안 화면</p>
       </div>
     </div>
   </div>
+  <p class="note" style="position:absolute;left:58px;bottom:22px;">출처 · Noom 퍼널(113화면·실시간 예측 곡선): RevenueCat funnel teardown</p>
   <div class="pageno">07 / 12</div>
 </section>
 
-<!-- 8 처방3: 가격·리스크리버설 -->
+<!-- 8 제안3: 가격·페이백 -->
 <section class="slide">
   <div class="topbar">
     <div class="stepper">
       <span class="step done"><span class="n">✓</span>관점</span><span class="sep"></span>
-      <span class="step done"><span class="n">✓</span>진단</span><span class="sep"></span>
-      <span class="step active"><span class="n">3</span>처방</span><span class="sep"></span>
+      <span class="step done"><span class="n">✓</span>관찰</span><span class="sep"></span>
+      <span class="step active"><span class="n">3</span>제안</span><span class="sep"></span>
       <span class="step"><span class="n">4</span>실행</span>
-    </div><span class="brandtag">처방 3/3</span>
+    </div><span class="brandtag">제안 3/3</span>
   </div>
-  <div class="lede">처방 ③ ｜ 약점 4 — 가격·페이백 설계</div>
-  <h1 class="stitle">425,000원을 <span class="i">'납득되는 한 화면'</span>으로 — 앵커링 + 리스크 역전</h1>
+  <div class="lede">제안 ③ ｜ 가격을 안심되게</div>
+  <h1 class="stitle">425,000원을 <span class="i">'안심되는 한 화면'</span>으로</h1>
   <div class="body">
     <div class="row" style="align-items:stretch;">
       <div class="col" style="flex:1.3;">
-        <div class="strathead"><span class="b">레퍼런스</span><span class="t"><b>Headspace</b>의 결제 화면 — 언제 끝나고 언제 청구되는지 <b>투명한 타임라인</b>으로 불안을 제거</span></div>
+        <div class="strathead"><span class="b">참고 사례</span><span class="t"><b>Headspace</b>는 언제 끝나고 언제 결제되는지 <b>타임라인</b>으로 보여줘 안심을 줍니다</span></div>
         <div class="row" style="gap:13px;">
-          <div class="actcard"><span class="tag a">앵커링</span>
-            <h3 style="margin-top:8px;">총액이 아닌 '단가'로</h3>
+          <div class="actcard"><span class="tag a">눈높이</span>
+            <h3 style="margin-top:8px;">총액보다 '하루 단가'로</h3>
             <ul class="clean">
-              <li>425,000원 → <b class="k">"하루 4,250원, 커피 한 잔"</b></li>
-              <li><b class="k">상담 1회(8~12만원)</b> 대비로 비교 앵커 제시</li>
+              <li>425,000원 → <b class="k">"하루 4,250원"</b></li>
+              <li><b class="k">상담 1회 비용</b>과 나란히 비교</li>
             </ul>
           </div>
-          <div class="actcard"><span class="tag g">리스크 역전</span>
+          <div class="actcard"><span class="tag g">안심</span>
             <h3 style="margin-top:8px;">페이백을 가격 옆에</h3>
             <ul class="clean">
-              <li><b class="k">효과 미충족 시 페이백 보장</b>을 결제 버튼 바로 위에</li>
-              <li>"50일 후 우울 −34%·불안 −40%" <b class="k">근거를 함께</b></li>
+              <li><b class="k">페이백 보장</b>을 결제 버튼 바로 위에</li>
+              <li><b class="k">'50일 -34%' 근거</b>를 함께</li>
             </ul>
           </div>
         </div>
-        <p class="take" style="margin-top:14px;font-size:15px;">순서가 핵심 — <span class="hi">체험 → 맞춤 플랜 → 예상 결과 → 그 다음 가격.</span> 가격은 가치가 선 뒤 마지막에.</p>
+        <p class="take" style="margin-top:14px;font-size:15px;">순서가 핵심이에요 — <span class="hi">체험 → 맞춤 플랜 → 예상 결과 → 그다음 가격.</span></p>
       </div>
       <div class="col" style="flex:1;">
         <div class="pricecard">
           <div style="font-size:12px;font-weight:800;color:var(--gray);">OO님 맞춤 100일 플랜</div>
           <div class="pday" style="margin-top:6px;">하루 4,250원</div>
-          <div class="pfull">100일 총 425,000원 · 1:1 전담 코치 포함</div>
-          <div class="pback">효과 없으면 페이백 — 사실상 리스크 0</div>
+          <div class="pfull">100일 총 425,000원 · 1:1 코치 포함</div>
+          <div class="pback">효과 없으면 페이백 — 안심하고 시작</div>
           <div class="tline">
-            <div class="tl"><span class="td g"></span><div><b>오늘</b> — 맞춤 플랜 시작, 첫 코칭 배정</div></div>
-            <div class="tl"><span class="td"></span><div><b>50일</b> — 중간 점검: 우울·불안 변화 리포트</div></div>
-            <div class="tl"><span class="td f"></span><div><b>100일</b> — 미충족 시 페이백 신청 가능</div></div>
+            <div class="tl"><span class="td g"></span><div><b>오늘</b> — 맞춤 플랜 시작, 코치 배정</div></div>
+            <div class="tl"><span class="td"></span><div><b>50일</b> — 중간 점검 리포트</div></div>
+            <div class="tl"><span class="td f"></span><div><b>100일</b> — 미충족 시 페이백 신청</div></div>
           </div>
         </div>
-        <p class="src" style="text-align:center;margin-top:8px;">▲ 제안 목업 — 단가 앵커 + 투명 타임라인 + 보장</p>
+        <p class="src" style="text-align:center;margin-top:8px;">▲ 직접 그려본 제안 화면</p>
       </div>
     </div>
   </div>
+  <p class="note" style="position:absolute;left:58px;bottom:22px;">출처 · '50일 -34%/-40%'·페이백·100일·425,000원: 디스턴싱 자사 안내(프로그램 페이지·온보딩) / 결제 타임라인: Headspace 결제 UX 분석</p>
   <div class="pageno">08 / 12</div>
 </section>
 
-<!-- 9 종합: Before / After 플로우 -->
+<!-- 9 종합 Before/After -->
 <section class="slide">
   <div class="topbar">
     <div class="stepper">
       <span class="step done"><span class="n">✓</span>관점</span><span class="sep"></span>
-      <span class="step done"><span class="n">✓</span>진단</span><span class="sep"></span>
-      <span class="step active"><span class="n">3</span>처방</span><span class="sep"></span>
+      <span class="step done"><span class="n">✓</span>관찰</span><span class="sep"></span>
+      <span class="step active"><span class="n">3</span>제안</span><span class="sep"></span>
       <span class="step"><span class="n">4</span>실행</span>
     </div><span class="brandtag">종합</span>
   </div>
-  <div class="lede">처방 종합 ｜ 온보딩 순서를 뒤집는다</div>
-  <h1 class="stitle">"조사부터 → 결제"를 <span class="i">"체험부터 → 납득된 결제"</span>로</h1>
+  <div class="lede">제안 종합 ｜ 순서를 살짝 바꾸면</div>
+  <h1 class="stitle">바꾸는 건 콘텐츠가 아니라 <span class="i">순서</span>입니다</h1>
   <div class="body">
     <div class="ba">
       <div class="bacol before">
-        <div class="bh">⛔ AS-IS — 현재</div>
-        <div class="baline">광고 클릭 → <b>곧장 자기설문</b> (이게 뭔지 모른 채)</div>
-        <div class="baline">정적 이미지로 <b>'설명'만</b> — 체험 0회</div>
-        <div class="baline">리커트 15문항 등 <b>50+ 화면 피로</b></div>
-        <div class="baline">답해도 <b>내 플랜이 안 보임</b> (보상 없음)</div>
-        <div class="baline">설문 한복판 <b>425,000원 단독 노출</b></div>
-        <div class="baline" style="margin-top:12px;color:var(--red-d);font-weight:800;">→ "지겨워서 이탈" · 전환 누수</div>
+        <div class="bh">지금 — 조사부터</div>
+        <div class="baline">클릭 직후 바로 설문이 시작돼요</div>
+        <div class="baline">앱은 이미지로 소개 — 직접 체험은 아직</div>
+        <div class="baline">문항이 이어지며 살짝 지치는 구간</div>
+        <div class="baline">설문 중간에 <b>425,000원</b>이 등장</div>
       </div>
       <div class="arr2" style="font-size:30px;">→</div>
       <div class="bacol after">
-        <div class="bh">✅ TO-BE — 제안</div>
-        <div class="baline">광고 메시지와 일치하는 <b>60초 디스턴싱 체험</b>으로 시작</div>
-        <div class="baline">'아하'(가치 체감) 직후 <b>핵심만 추린 진단</b></div>
-        <div class="baline">답할수록 <b>예상 개선곡선·맞춤 커리큘럼</b>이 쌓임</div>
-        <div class="baline">맞춤 플랜 확정 → <b>예상 결과 → 마지막에 가격</b></div>
-        <div class="baline">가격은 <b>단가 앵커 + 페이백 보장</b>과 한 화면</div>
-        <div class="baline" style="margin-top:12px;color:var(--blue-d);font-weight:800;">→ "납득하고 결제" · CVR 상승</div>
+        <div class="bh">제안 — 체험부터</div>
+        <div class="baline"><b>60초 디스턴싱 체험</b>으로 가치를 먼저</div>
+        <div class="baline">핵심만 추린 문항 + <b>진행률</b> 표시</div>
+        <div class="baline">답할수록 <b>내 예상 곡선·맞춤 코스</b>가 쌓임</div>
+        <div class="baline">맞춤 플랜 확정 후, <b>가격 + 페이백</b>을 함께</div>
       </div>
     </div>
-    <p class="take" style="margin-top:18px;text-align:center;">바꾸는 건 콘텐츠가 아니라 <span class="hi">순서와 보상 구조</span> — 보유 자산(코치·효과데이터·페이백)을 재배치할 뿐입니다.</p>
+    <p class="take" style="margin-top:20px;text-align:center;">이미 가진 자산(<span class="hi">코치 · 효과 데이터 · 페이백</span>)을 <span class="hi">다시 배치</span>하는 것에 가깝습니다.</p>
   </div>
   <div class="pageno">09 / 12</div>
 </section>
@@ -560,26 +560,26 @@
   <div class="topbar">
     <div class="stepper">
       <span class="step done"><span class="n">✓</span>관점</span><span class="sep"></span>
-      <span class="step done"><span class="n">✓</span>진단</span><span class="sep"></span>
-      <span class="step done"><span class="n">✓</span>처방</span><span class="sep"></span>
+      <span class="step done"><span class="n">✓</span>관찰</span><span class="sep"></span>
+      <span class="step done"><span class="n">✓</span>제안</span><span class="sep"></span>
       <span class="step active"><span class="n">4</span>실행</span>
     </div><span class="brandtag">실행</span>
   </div>
-  <div class="lede">실행 ① ｜ 90일 A/B 로드맵</div>
-  <h1 class="stitle">가장 <span class="i">싸고 빠른 것</span>부터 — 단계적으로 검증</h1>
+  <div class="lede">실행 ① ｜ 작게 검증하며</div>
+  <h1 class="stitle">가장 <span class="i">쉬운 것</span>부터, A/B로 확인하며</h1>
   <div class="body">
     <div class="phase">
-      <div class="pc p1"><span class="pn">0–2주 · Quick Win</span><h3>순서 바꾸기 + 진행률</h3>
-        <ul><li>인트로 60초 '디스턴싱 체험' 삽입</li><li>가격 노출을 설문 끝·플랜 확정 후로 이동</li><li>진행바·남은 시간 표시 (개발 부담 최소)</li></ul></div>
+      <div class="pc p1"><span class="pn">0–2주 · 바로</span><h3>순서 바꾸기</h3>
+        <ul><li>인트로에 60초 체험 넣기</li><li>가격을 플랜 확정 뒤로</li><li>진행바 표시</li></ul></div>
       <div class="arr2">→</div>
-      <div class="pc p2"><span class="pn">2–6주 · 핵심 개선</span><h3>설문 다이어트 + 보상</h3>
-        <ul><li>리커트 문항 압축, 단계 축소 A/B</li><li>답변 기반 예상 개선곡선 산출물</li><li>가격 화면에 단가 앵커 + 페이백 배치</li></ul></div>
+      <div class="pc p2"><span class="pn">2–6주 · 다음</span><h3>문항 + 결과</h3>
+        <ul><li>문항 압축 A/B</li><li>예상 개선 곡선 보여주기</li><li>가격 화면에 페이백 배치</li></ul></div>
       <div class="arr2">→</div>
-      <div class="pc p3"><span class="pn">6–12주 · 확장</span><h3>맞춤 진단 고도화</h3>
-        <ul><li>맞춤 100일 커리큘럼 미리보기</li><li>증상별(번아웃·불면 등) 분기 플로우</li><li>채널별 광고-온보딩 메시지 매치</li></ul></div>
+      <div class="pc p3"><span class="pn">6–12주 · 확장</span><h3>맞춤 고도화</h3>
+        <ul><li>맞춤 100일 코스 미리보기</li><li>증상별 분기 흐름</li><li>광고-온보딩 메시지 맞추기</li></ul></div>
     </div>
-    <p class="take" style="margin-top:22px;">우선순위 원칙 — <span class="hi">① 코드 한 줄로 되는 '순서·가격 위치'부터</span> 즉시 A/B, 효과 확인 후 산출물·개인화에 투자.</p>
-    <p class="note">모든 단계는 단일 변수 A/B로 검증 — 제가 Web2App·페이백 RCT를 설계한 방식과 동일.</p>
+    <p class="take" style="margin-top:22px;"><span class="hi">코드 한두 줄로 되는 '순서·위치'부터</span> 가볍게 A/B로 확인하면 좋겠습니다.</p>
+    <p class="note">제가 Web2App·페이백을 검증했던 방식 그대로, 한 번에 하나씩만 바꿔 비교합니다.</p>
   </div>
   <div class="pageno">10 / 12</div>
 </section>
@@ -589,24 +589,24 @@
   <div class="topbar">
     <div class="stepper">
       <span class="step done"><span class="n">✓</span>관점</span><span class="sep"></span>
-      <span class="step done"><span class="n">✓</span>진단</span><span class="sep"></span>
-      <span class="step done"><span class="n">✓</span>처방</span><span class="sep"></span>
+      <span class="step done"><span class="n">✓</span>관찰</span><span class="sep"></span>
+      <span class="step done"><span class="n">✓</span>제안</span><span class="sep"></span>
       <span class="step active"><span class="n">4</span>실행</span>
     </div><span class="brandtag">실행</span>
   </div>
-  <div class="lede">실행 ② ｜ 무엇을 측정할 것인가</div>
-  <h1 class="stitle">'단계 통과율'을 넘어 <span class="i">'결제·완주'</span>까지 본다</h1>
+  <div class="lede">실행 ② ｜ 무엇을 함께 볼까</div>
+  <h1 class="stitle">'단계 통과'를 넘어 <span class="i">'결제·완주'</span>까지</h1>
   <div class="body">
     <table class="kpi">
-      <tr><th>구간</th><th>핵심 측정 지표 (KPIs)</th><th>의미</th></tr>
-      <tr><td>체험(아하)</td><td>1분 체험 완료율 · 체험 후 설문 진입율</td><td>가치 체감 여부</td></tr>
-      <tr><td>온보딩 퍼널</td><td>섹션별 통과율 · 전체 완료율 · 평균 소요시간</td><td>피로·이탈 지점</td></tr>
-      <tr><td>전환(핵심)</td><td>온보딩 완료→결제 CVR · 클릭→결제 전체 CVR</td><td>매출 직결</td></tr>
-      <tr><td>퍼포먼스 환산</td><td>채널별 실질 CAC · 허용 CAC 여력</td><td>예산 확장 근거</td></tr>
-      <tr><td>제품 성과</td><td>결제→프로그램 완주율 · 50일 효과지표</td><td>LTV·페이백 리스크</td></tr>
+      <tr><th>구간</th><th>함께 볼 지표</th><th>의미</th></tr>
+      <tr><td>체험</td><td>1분 체험 완료율 · 체험 후 진입율</td><td>가치 체감</td></tr>
+      <tr><td>온보딩</td><td>섹션별 통과율 · 완료율 · 소요시간</td><td>지치는 구간</td></tr>
+      <tr><td>전환</td><td>온보딩→결제 CVR · 클릭→결제 CVR</td><td>매출 직결</td></tr>
+      <tr><td>퍼포먼스</td><td>채널별 실질 CAC · 허용 CAC</td><td>예산 여력</td></tr>
+      <tr><td>제품</td><td>결제→완주율 · 50일 효과</td><td>LTV·페이백</td></tr>
     </table>
-    <p class="take" style="margin-top:20px;">North Star는 <span class="hi">'클릭 → 결제 전체 CVR'</span> — 이 한 지표가 오르면 <span class="hi">모든 채널의 CAC가 동시에 내려갑니다.</span></p>
-    <p class="note">벤치마크 참고 — 진행바 추가 시 1→2단계 이탈 38.4%→24.1%, 입력폼 7→3 축소 시 퍼널 이탈 −44.7% (UXCam 2026 SaaS 온보딩 벤치마크).</p>
+    <p class="take" style="margin-top:20px;">한 지표만 꼽자면 <span class="hi">'클릭 → 결제 전환율'</span> — 이게 오르면 채널 CAC가 함께 내려갑니다.</p>
+    <p class="note">참고 · 진행바 추가 시 1→2단계 이탈 38.4%→24.1%, 입력 항목 7→3개 축소 시 전체 이탈 −44.7% (출처: UXCam, 2026 SaaS 온보딩 벤치마크). 아래 12p 수치는 방향성 가정치이며 베이스라인 측정 후 확정.</p>
   </div>
   <div class="pageno">11 / 12</div>
 </section>
@@ -616,26 +616,26 @@
   <div class="topbar">
     <div class="stepper">
       <span class="step done"><span class="n">✓</span>관점</span><span class="sep"></span>
-      <span class="step done"><span class="n">✓</span>진단</span><span class="sep"></span>
-      <span class="step done"><span class="n">✓</span>처방</span><span class="sep"></span>
+      <span class="step done"><span class="n">✓</span>관찰</span><span class="sep"></span>
+      <span class="step done"><span class="n">✓</span>제안</span><span class="sep"></span>
       <span class="step done"><span class="n">✓</span>실행</span>
     </div><span class="brandtag">맺음말</span>
   </div>
-  <div class="lede">맺음말 ｜ 제가 드리는 한 가지 메시지</div>
-  <h1 class="stitle">퍼포먼스 최적화는 <span class="i">매체가 아니라 온보딩</span>에서 시작합니다</h1>
+  <div class="lede">맺음말 ｜ 드리고 싶은 한마디</div>
+  <h1 class="stitle">퍼포먼스는 매체보다 <span class="i">온보딩</span>에서 시작될 수 있어요</h1>
   <div class="body">
     <div class="card" style="background:radial-gradient(120% 140% at 80% 0%,#172158,#0a1030);border:none;text-align:center;padding:26px;">
-      <p style="color:#fff;font-size:23px;font-weight:800;line-height:1.5;">"어떤 앱인지 먼저 <span style="background:linear-gradient(90deg,#8be9ff,#7da0ff,#a99bff);-webkit-background-clip:text;background-clip:text;color:transparent;">체험</span>시키고,<br>그 다음에 결제를 권한다."</p>
-      <p style="color:#a3acdf;font-size:14px;margin-top:12px;">디스턴싱은 이미 <b style="color:#fff;">강력한 체험거리·효과 데이터·페이백</b>을 가졌습니다 — 순서만 바꾸면 됩니다.</p>
+      <p style="color:#fff;font-size:23px;font-weight:800;line-height:1.5;">"어떤 앱인지 먼저 <span style="background:linear-gradient(90deg,#8be9ff,#7da0ff,#a99bff);-webkit-background-clip:text;background-clip:text;color:transparent;">체험</span>하고,<br>그다음에 결제하면 어떨까요."</p>
+      <p style="color:#a3acdf;font-size:14px;margin-top:12px;">디스턴싱은 이미 <b style="color:#fff;">좋은 체험거리·효과 데이터·페이백</b>을 가졌으니까요.</p>
     </div>
-    <p style="font-size:12.5px;font-weight:800;color:var(--gray);margin:18px 0 10px;text-align:center;">기대효과 (방향성 · A/B로 검증)</p>
+    <p style="font-size:12.5px;font-weight:800;color:var(--gray);margin:18px 0 10px;text-align:center;">기대해보는 변화 (방향성 · A/B로 확인)</p>
     <div class="impact">
       <div class="ic"><div class="iv">CVR <span class="ar">↑</span></div><div class="il">클릭 → 결제 전환율</div><div class="ib">체험·납득 후 결제</div></div>
-      <div class="ic"><div class="iv">CAC <span style="color:var(--red-d)">↓</span></div><div class="il">전 채널 실질 CAC</div><div class="ib">온보딩 = 공통분모</div></div>
-      <div class="ic"><div class="iv">이탈 <span style="color:var(--red-d)">↓</span></div><div class="il">설문 중도 이탈</div><div class="ib">다이어트·진행률·보상</div></div>
-      <div class="ic"><div class="iv">완주 <span class="ar">↑</span></div><div class="il">결제 후 프로그램 완주</div><div class="ib">납득된 유입 = 고의향</div></div>
+      <div class="ic"><div class="iv">CAC <span style="color:var(--blue-d)">↓</span></div><div class="il">전 채널 실질 CAC</div><div class="ib">온보딩 = 공통분모</div></div>
+      <div class="ic"><div class="iv">이탈 <span style="color:var(--blue-d)">↓</span></div><div class="il">설문 중도 이탈</div><div class="ib">덜어내기·진행률</div></div>
+      <div class="ic"><div class="iv">완주 <span class="ar">↑</span></div><div class="il">결제 후 완주</div><div class="ib">납득된 유입</div></div>
     </div>
-    <p class="take" style="text-align:center;margin-top:18px;">예산을 늘리기 전에, <span class="hi">클릭 직후의 60초</span>부터 함께 고치고 싶습니다.</p>
+    <p class="take" style="text-align:center;margin-top:18px;">예산을 키우기 전에, <span class="hi">클릭 직후의 60초</span>부터 함께 다듬어보고 싶습니다.</p>
   </div>
   <div class="pageno">12 / 12</div>
 </section>
