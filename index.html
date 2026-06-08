@@ -142,6 +142,14 @@
   .pill{font-size:11px;font-weight:700;background:#fff;border:1px solid var(--line);border-radius:18px;padding:5px 10px;color:#4a525a;}
   .pill.on{background:var(--blue);color:#fff;border-color:var(--blue);}
 
+  /* journey timeline */
+  .jrow{display:flex;align-items:flex-start;justify-content:space-between;margin:6px 2px 0;}
+  .jn{display:flex;flex-direction:column;align-items:center;width:58px;}
+  .jd{width:13px;height:13px;border-radius:50%;background:var(--blue);border:3px solid var(--blue-bg);flex:0 0 auto;}
+  .jd.g{background:var(--green);border-color:var(--green-bg);}
+  .jt{font-size:10px;font-weight:700;color:#4a525a;text-align:center;margin-top:6px;line-height:1.3;}
+  .jl{flex:1;height:2px;background:var(--line);margin-top:6px;}
+
   /* price mock */
   .pricecard{background:#fff;border:2px solid var(--blue);border-radius:20px;padding:18px 20px;box-shadow:0 8px 26px rgba(43,89,255,.12);}
   .pricecard .pday{font-size:30px;font-weight:800;color:var(--blue);letter-spacing:-1px;line-height:1;}
@@ -419,50 +427,52 @@
       <span class="step"><span class="n">4</span>실행</span>
     </div><span class="brandtag">제안 2/3</span>
   </div>
-  <div class="lede">제안 ② ｜ 답변을 결과로</div>
-  <h1 class="stitle">설문을 <span class="i">'내 플랜이 쌓이는 과정'</span>으로</h1>
+  <div class="lede">제안 ② ｜ 설문보다 서비스 소개를 먼저</div>
+  <h1 class="stitle">질문부터가 아니라, <span class="i">어떻게 코칭·관리하는지</span>를 먼저</h1>
   <div class="body">
     <div class="row" style="align-items:stretch;">
-      <div class="col" style="flex:1.25;">
-        <div class="strathead"><span class="b">참고 사례</span><span class="t"><b>Noom</b>은 답할 때마다 <b>예측 곡선</b>이 채워져, "내 플랜"이 눈에 보입니다</span></div>
+      <div class="col" style="flex:1.2;">
+        <div class="strathead"><span class="b">참고 사례</span><span class="t">좋은 온보딩은 <b>'목적지(여정)'를 먼저 보여준 뒤</b> 질문합니다 — 그래야 '왜 답하는지'가 납득돼요</span></div>
         <div class="row" style="gap:13px;">
-          <div class="actcard"><span class="tag i">덜어내기</span>
-            <h3 style="margin-top:8px;">핵심 문항 + 진행률</h3>
+          <div class="actcard"><span class="tag i">코칭 방식</span>
+            <h3 style="margin-top:8px;">매일 1:1 전담 코치</h3>
             <ul class="clean">
-              <li>비슷한 문항은 <b class="k">핵심만</b> 남기기</li>
-              <li><b class="k">진행바·남은 시간</b> 보여주기</li>
+              <li>생각기록·활동지에 <b class="k">매일 피드백</b></li>
+              <li>나에게 맞는 <b class="k">가치 행동 설계</b></li>
             </ul>
           </div>
-          <div class="actcard"><span class="tag g">보여주기</span>
-            <h3 style="margin-top:8px;">답변 → 바로 결과</h3>
+          <div class="actcard"><span class="tag g">관리 여정</span>
+            <h3 style="margin-top:8px;">100일을 이렇게 함께</h3>
             <ul class="clean">
-              <li>내 <b class="k">예상 개선 곡선</b> 실시간 갱신</li>
-              <li><b class="k">맞춤 100일 코스</b> 미리보기</li>
+              <li>매일 <b class="k">생각기록·명상훈련</b></li>
+              <li>주차별 <b class="k">우울·불안 추이</b> 점검</li>
             </ul>
           </div>
         </div>
-        <p class="take" style="margin-top:14px;font-size:15px;">같은 문항도 <span class="hi">'내 플랜이 완성돼 가는 보람'</span>으로 느껴질 수 있어요.</p>
+        <p class="take" style="margin-top:14px;font-size:15px;">목적지가 먼저 그려지면, 이어지는 설문은 <span class="hi">'나를 위한 맞춤 준비'</span>로 느껴져 이탈이 줄어듭니다.</p>
       </div>
       <div class="col" style="flex:1;">
-        <div class="curvebox">
-          <div class="ttl">📈 OO님 맞춤 예측 — 답변 기반</div>
-          <svg viewBox="0 0 300 120" style="width:100%;height:96px;">
-            <polyline points="10,20 70,30 130,55 200,80 290,100" fill="none" stroke="#fa5252" stroke-width="3" stroke-dasharray="5 4" opacity=".4"/>
-            <polyline points="10,20 70,28 130,48 200,72 290,96" fill="none" stroke="#2b59ff" stroke-width="3.5"/>
-            <circle cx="290" cy="96" r="5" fill="#2b59ff"/>
-            <text x="150" y="16" font-size="11" fill="#7c848c">우울 점수</text>
-            <text x="222" y="92" font-size="11" font-weight="700" fill="#2b59ff">100일 후 ↓</text>
-          </svg>
-          <div class="pillrow">
-            <span class="pill on">번아웃 직장인</span><span class="pill on">불면</span><span class="pill">반추</span>
+        <div class="mock">
+          <div class="mh">🧭 디스턴싱은 이렇게 함께해요</div>
+          <div class="ms">설문 전에, 100일 여정을 한눈에</div>
+          <div class="chatb sys" style="margin-bottom:12px;max-width:100%;">"오늘 생각기록 잘 봤어요. 내일은 '가치 행동' 하나를 같이 정해볼까요?" — 전담 코치 👩‍⚕️</div>
+          <div class="jrow">
+            <div class="jn"><div class="jd"></div><div class="jt">오늘<br>시작</div></div>
+            <div class="jl"></div>
+            <div class="jn"><div class="jd"></div><div class="jt">매일<br>기록·명상</div></div>
+            <div class="jl"></div>
+            <div class="jn"><div class="jd"></div><div class="jt">50일<br>중간점검</div></div>
+            <div class="jl"></div>
+            <div class="jn"><div class="jd g"></div><div class="jt">100일<br>완주·페이백</div></div>
           </div>
-          <p style="font-size:11px;color:var(--gray);margin-top:8px;">→ <b style="color:var(--blue-d)">'생각 거리두기 + 행동활성화'</b> 코스를 먼저 담아뒀어요</p>
+          <div class="pillrow" style="margin-top:14px;justify-content:center;"><span class="pill on">생각 기록</span><span class="pill on">명상 훈련</span><span class="pill on">가치 행동</span></div>
+          <div class="mockbtn">이제 나에게 맞게 준비할게요 — 1분 설문</div>
         </div>
         <p class="src" style="text-align:center;margin-top:8px;">▲ 직접 그려본 제안 화면</p>
       </div>
     </div>
   </div>
-  <p class="note" style="position:absolute;left:58px;bottom:22px;">출처 · Noom 퍼널(113화면·실시간 예측 곡선): RevenueCat funnel teardown</p>
+  <p class="note" style="position:absolute;left:58px;bottom:22px;">출처 · 코칭 방식·100일 구성: 디스턴싱 자사(앱·프로그램 페이지) / '여정을 먼저 보여주기'는 온보딩 일반 원칙</p>
   <div class="pageno">07 / 12</div>
 </section>
 
@@ -545,8 +555,8 @@
       <div class="bacol after">
         <div class="bh">제안 — 체험부터</div>
         <div class="baline"><b>60초 디스턴싱 체험</b>으로 가치를 먼저</div>
-        <div class="baline">핵심만 추린 문항 + <b>진행률</b> 표시</div>
-        <div class="baline">답할수록 <b>내 예상 곡선·맞춤 코스</b>가 쌓임</div>
+        <div class="baline"><b>코칭·100일 여정</b>을 한눈에 본 뒤 설문</div>
+        <div class="baline">핵심만 추린 문항 + <b>진행률</b>, 답하며 내 플랜이 쌓임</div>
         <div class="baline">맞춤 플랜 확정 후, <b>가격 + 페이백</b>을 함께</div>
       </div>
     </div>
